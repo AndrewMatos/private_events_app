@@ -1,0 +1,6 @@
+<% if @u = User.find_by(id: session[:user_id]) %>
+      <p>User in session: <%= link_to  @u.name , @u %> </p> 
+<% end %>
+
+<%=link_to "Events", events_path%> <%= link_to "New Event", new_event_path %> 
+<%= link_to "log in", new_session_path %> 

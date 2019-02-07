@@ -1,0 +1,33 @@
+<%= form_for(@event) do |f| %>
+    <%= render 'shared/error_messages', object: f.object %>
+
+    <div>
+    	<%= f.label :name %>
+    	<%= f.text_field :name %>
+    </div>
+
+    <div>
+    	<%= f.label :description %>
+    	<%= f.text_field :description %>
+    </div>
+
+    <div>
+    	<%= f.label :location %>
+    	<%= f.text_field :location %>
+    </div>
+
+    <div>
+    	<%= f.label :date %>
+    	<input type="date" id="event_date" name="event[time]">
+    </div>
+
+    <div>
+    	<br>
+    	<%= f.label :invitation%>
+    	<p> (Optional) write the name of the user that you want to invite separated by commas </p>
+    	<input type="text" id="event_invitation" name="event[users_invited]">
+    </div>
+
+    <%= f.submit "Create event" %>
+
+<% end %>

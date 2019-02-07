@@ -1,0 +1,52 @@
+<h3>User:</h3>
+<p>name: <%= @user.name %></p>
+<p>email: <%= @user.email %> </p>
+<br>
+
+
+<div>
+	<% if @user.events.any? %>
+	  <h3> <%= pluralize(@user.events.count, "Event") %>:</h3>
+        <% if @hosting.any? %>
+		  	<h3>Hosting:</h3>
+			  	<% @hosting.each do |event| %>
+				  	<%= render "shared/event", event: event %>
+				  	<br>
+			    <% end %>
+	    <% end %>
+
+        <% if @hosted.any? %>
+	        <h3>Hosted:</h3>
+	        <% @hosted.each do |event| %>
+			  	<%= render "shared/event", event: event %>
+			  	<br>
+			<% end %>
+		<% end %>
+	<% end %>
+</div>
+
+<div>
+	<% if @user.invitations.any? %>
+		<h3> Invited: </h3>
+
+		<h3> Upcoming: </h3>
+        
+        <% if @upcoming_events.any? %>
+			<ul>
+				<% @upcoming_events.each do |u| %>
+					<li><%=u.name%> at:<%= u.time %> <%=link_to "more info", u%> </li>
+				<% end %>
+			</ul>
+		<% end %>
+        
+        <% if @prev_events.any? %>
+		    <h3> Previous:</h3>
+			<ul>
+				<% @prev_events.each do |u| %>
+					<li><%=u.name%> at:<%= u.time %> <%=link_to "more info", u%> </li>
+				<% end %>
+			</ul>
+		<% end %>
+    <% end %>
+</div>
+

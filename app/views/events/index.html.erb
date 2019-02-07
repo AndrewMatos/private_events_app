@@ -1,0 +1,18 @@
+
+<% if @upcoming_events.any? %>
+    <h3> upcoming events </h3>
+	<% @upcoming_events.each do |event| %>
+		<p>Host: <%= event.host.name %></p>
+		<%= render "shared/event", event: event %>
+	    <br>
+	<% end %>
+<% end %>
+
+<% if @passed_events.any? %>
+    <h3> past events </h3>
+	<% @passed_events.each do |event| %>
+		<p>Host: <%= event.host.name %></p>
+		<%= render "shared/event", event: event %>
+	    <br>
+	<% end %>
+<% end %>

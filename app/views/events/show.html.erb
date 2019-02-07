@@ -1,0 +1,13 @@
+
+<h3> Host: <%= @event.host.name %> </h3>
+<%= render "shared/event", event: @event %>
+
+<% if @event.attendees.any? %>
+	<h3> Attendees: </h3>
+	<ul>
+		<% @event.attendees.each do |u| %>
+			<li><%= u.name %></li>
+		<% end %>
+	</ul>
+	
+<% end %>
